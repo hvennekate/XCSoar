@@ -127,6 +127,7 @@ extern const char AppDialogStyle[];
 extern const char AppInfoBoxBorder[];
 extern const char AppAveNeedle[];
 extern const char CursorSize[];
+extern const char CursorColorsInverted[];
 extern const char AutoAdvance[];
 extern const char UTCOffset[];
 extern const char UTCOffsetSigned[];

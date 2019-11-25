@@ -27,5 +27,6 @@ void
 DisplaySettings::SetDefaults()
 {
   orientation = DisplayOrientation::DEFAULT;
-  cursor_size = 1;
+  cursor_size = 2;
+  invert_cursor_colors = false;
 }

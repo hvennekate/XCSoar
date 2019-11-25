@@ -91,8 +91,8 @@ TopWindow::OnPaint(Canvas &canvas)
   /* draw the mouse cursor */
 
   const auto m = event_queue->GetMousePosition();
-  unsigned shortDistance = Layout::Scale(cursor_size * 4);
-  unsigned longDistance = Layout::Scale(cursor_size * 6);
+  unsigned shortDistance = Layout::Scale(cursor_size * 2);
+  unsigned longDistance = Layout::Scale(cursor_size * 3);
 
   const BulkPixelPoint p[] = {
     { m.x, m.y },
@@ -100,8 +100,14 @@ TopWindow::OnPaint(Canvas &canvas)
     { m.x, m.y + longDistance },
   };
 
-  canvas.SelectBlackPen();
-  canvas.SelectWhiteBrush();
+  unsigned penSize = cursor_size / 2 + cursor_size % 2;
+  if (invert_cursor_colors) {
+    canvas.SelectWhitePen(penSize);
+    canvas.SelectBlackBrush();
+  } else {
+    canvas.SelectBlackPen(penSize);
+    canvas.SelectWhiteBrush();
+  }
   canvas.DrawTriangleFan(p, ARRAY_SIZE(p));
 }
 #endif
