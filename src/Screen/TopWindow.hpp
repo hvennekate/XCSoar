@@ -143,7 +143,7 @@ class TopWindow : public ContainerWindow {
   SDL_Window *window;
 #endif
 #ifdef DRAW_MOUSE_CURSOR
-  uint8_t cursor_size = 1;
+  uint8_t cursor_size = 2;
   bool invert_cursor_colors = false;
 #endif
 
