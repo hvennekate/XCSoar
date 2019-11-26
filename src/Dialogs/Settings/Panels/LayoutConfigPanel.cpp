@@ -218,10 +218,10 @@ LayoutConfigPanel::Prepare(ContainerWindow &parent, const PixelRect &rc)
 #endif
 
 #ifdef DRAW_MOUSE_CURSOR
-  AddInteger(_("Cursor zoom"), _("Cursor zoom factor"), _T("%d x"), _T("%d x"), 1, 12, 1,
+  AddInteger(_("Cursor size"), _("Cursor zoom factor"), _T("%d x"), _T("%d x"), 1, 12, 1,
              (unsigned)ui_settings.display.cursor_size);
   SetExpertRow(CursorSize);
-  AddBoolean(_("Invert cursor color"), _("Enable black cursor"),
+  AddBoolean(_("Black cursor"), _("Invert cursor color"),
              ui_settings.display.invert_cursor_colors);
 #endif
 }
