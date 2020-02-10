@@ -254,6 +254,10 @@ KRT2Device::DataReceived(const void *_data, size_t length,
 
       if (range.size >= expected_msg_length) {
         switch (*(const uint8_t *) range.data) {
+          case 'S':
+            // Respond to connection query.
+            port.Write(0x01);
+            break;
           case ACK:
           case NAK:
             // Received a response to a normal command (STX)
@@ -378,6 +382,9 @@ KRT2Device::ExpectedMsgLengthSTX(uint8_t code)
 void
 KRT2Device::GetStationName(char *station_name, const TCHAR *name)
 {
+  if(name == nullptr)
+      name = _T("");
+
   size_t s_idx = 0; //!< Source name index
   size_t d_idx = 0; //!< Destination name index
   TCHAR c; //!< Character at source name index
